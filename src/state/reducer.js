@@ -1,15 +1,23 @@
-const GET_FILMS = 'GET_DATA'
+export const ADD_RANDOM_FILM = 'SAVE_RANDOM_FILM'
+export const GET_RANDOM_FILM = 'GET_RANDOM_FILM'
 
 const defaltState = {
-  items: [],
+  randomFilm: null,
+  isLoading: false,
 }
 
 export const reducer = (state = defaltState, action) => {
   switch (action.type) {
-    case GET_FILMS:
+    case ADD_RANDOM_FILM:
       return {
+        isLoading: false,
+        randomFilm: action.payload,
+      }
+
+    case GET_RANDOM_FILM:
+      return {
+        isLoading: true,
         ...state,
-        items: action.payload,
       }
 
     default:
@@ -17,4 +25,4 @@ export const reducer = (state = defaltState, action) => {
   }
 }
 
-// export const setFilms = (payload) => ({ type: GET_FILMS, payload })
+export const actionCreator = (type, payload) => ({ type, payload })

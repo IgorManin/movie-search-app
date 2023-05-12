@@ -1,4 +1,5 @@
 {
+  "indent": ["error", 2],
   "singleQuote": true,
   "trailingComma": "all",
   "tabWidth": 2,
